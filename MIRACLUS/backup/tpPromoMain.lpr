@@ -10,11 +10,17 @@ type
     cadenaOpci = string;
 
     arrOpciones = array [subrOpciones] of cadenaOpci;
+
+    tipoResultado = record
+          correc, falso: cadenaOpci;
+    end;
+
     tipoPreguntas = record
                   numCategoria: subrCategorias;
                   pregunta: cadenaPreg;
                   opciones: arrOpciones;
 		  respuesta: subrOpciones;
+                  result: tipoResultado;
 	end;
 
     lista = ^nodo;
@@ -69,6 +75,17 @@ procedure precESC(); // espera a que el jugador precione "ESC" para continuar
                until K = #27;
           end;
 
+procedure nuevaPartida(var ok:boolean); // espera a que el jugador precione "ESC" o "ENTER"
+          var K: char;
+          begin
+               writeln;
+               writeln('                      - Precione "ENTER" para jugar de nuevo o "ESC" para terminar -');
+               writeln('                ------------------------------------------------------------------------------');
+               repeat K:= readkey;
+                      until (K = #13) or (K = #27);
+               ok:= K = #27;
+          end;
+
 procedure intro();
           procedure apertura(); // UI - imprime la portada del juego y narra la historia del mismo
                     begin
@@ -119,14 +136,43 @@ procedure intro();
 
 procedure jugadorGano();
           begin
+            writeln('                ------------------------------------------------------------------------------');
+            writeln;
+            writeln('                                               FELICIDADES');
+            writeln('                                        CONSEGUISTE TODAS LAS CARAS');
+            writeln('                                          DEL DIAMANTE DEL LEON');
+            writeln;
+            writeln('                                     ¿USARAS TUS PODERES PARA EL BIEN?');
+            writeln;
+            writeln;
 
           end;
 
 procedure jugadorPerdio();
           begin
-
+               writeln('                ------------------------------------------------------------------------------');
+               writeln;
+               writeln('                                               JUEGO TERMINADO');
+               writeln('                                     FALLASTE EN CONSEGUIR TODAS LAS CARAS');
+               writeln('                                            DEL DIAMANTE DEL LEON');
+               writeln;
+               writeln('                                      ¿USARAS TUS PODERES PARA EL BIEN?');
+               writeln;
+               writeln;
           end;
 
+procedure contesto(ok: boolean; p: tipoPreguntas);
+          begin
+               if (ok) then begin
+                    writeln(' - Correcto la resupuesta es ', p.respuesta, ' ya que:');
+                    writeln(p.result.correc);
+               end else begin
+                    writeln(' - Fallaste la resupuesta es ', p.respuesta, ' ya que:');
+                    writeln(p.result.falso);
+               end;
+               writeln;
+               precEnter();
+          end;
 
 
 
@@ -173,18 +219,9 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
                     end;
           type
               auxBool = string[6];
-              tipoLinea = record
-                    cat: subrCategorias;
-                    cara: auxBool;
-                    preg: cadenaPreg;
-                    opci: cadenaOpci;
-                    resp: char;
-              end;
-
           var
              act: tipoPreguntas;
              archCategorias: text;
-             linea: tipoLinea;
              Iopciones: subrOpciones;
              I: subrCategorias;
           begin
@@ -196,22 +233,18 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
                   reset(archCategorias);
                   while not(eof(archCategorias)) do begin
                           // leo a que categoria pertenece la pregunta
-                          with linea do begin
-                            readln(archCategorias, cat);
-                            act.numCategoria:= cat;
+                          readln(archCategorias, act.numCategoria);
 
-                            // leo la pregunta en si y sus opciones
-                            readln(archCategorias, preg);
-                            act.pregunta:= preg;
-                            for Iopciones:= 'A' to constOPCIONES do begin
-                                    readln(archCategorias, opci);
-                                    act.opciones[Iopciones]:= opci;
-                            end;
-
-                            // leo la respuesta correcta
-                            readln(archCategorias, resp);
-                            act.respuesta:= resp;
+                          // leo la pregunta en si y sus opciones
+                          readln(archCategorias, act.pregunta);
+                          for Iopciones:= 'A' to constOPCIONES do begin
+                                   readln(archCategorias, act.opciones[Iopciones]);
                           end;
+
+                          // leo la respuesta correcta y sus respuestas
+                          readln(archCategorias, act.respuesta);
+                          readln(archCategorias, act.result.correc);
+                          readln(archCategorias, act.result.falso);
 
                           // agrego al Vector De Listas
                           agregarFinal(vdl[act.numCategoria], act);
@@ -240,19 +273,22 @@ procedure liberarMemVDL(var vdl: vdlCategorias); // libera la memoria ocupada po
 // --------------------------- PROGRAMA PRINCIPAL ---------------------------
 var
    vdl: vdlCategorias;
-   resultado: boolean;
+   resultado, ok: boolean;
 begin
      // inicializacion
+     resultado:= false; ok:=false;
      cargarVDL(vdl); // normalmente en la practica trabajamos con un "se dispone", decidimos crear un archivo 'categorias.txt' para cargarlo
      clrscr;
 
      // principal
      intro();
-     partida(vdl, resultado);
+     while not(ok) do begin
+           partida(vdl, resultado);
 
-     if (resultado) then jugadorGano()
-                    else jugadorPerdio();
-
+           if (resultado) then jugadorGano()
+                       else jugadorPerdio();
+           nuevaPartida(ok);
+     end;
      // termina el juego
      precESC();
      liberarMemVDL(vdl);
