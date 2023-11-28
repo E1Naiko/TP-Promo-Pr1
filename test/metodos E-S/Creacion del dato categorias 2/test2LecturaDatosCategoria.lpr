@@ -53,22 +53,23 @@ procedure cargarMatriz(var m: matrCategorias);
              J: subrColumna;
              I: subrFila;
           begin
-                  assign(archCategorias, 'categorias.txt');
+                  assign(archCategorias, 'DEBUGcategorias.txt');
                   reset(archCategorias);
-                  while not(eof(archCategorias)) do begin
-                        for J:=1 to constCOLUMNAS do begin
-                            for I:=1 to constFILAS do begin
-                                        readln(archCategorias, lineaStr);
-                                        act.pregunta:= lineaStr;
-                                        for Iopciones:= 'A' to constOPCIONES do begin
-                                              readln(archCategorias, lineaStr);
-                                              act.opciones[Iopciones]:= lineaStr;
-                                        end;
-                                        readln(archCategorias, lineaChar);
-                                        act.respuesta:= lineaChar;
-                                        m[I,J]:= act;
-                                  end;
+                  for J:=1 to constCOLUMNAS do begin
+                      for I:=1 to constFILAS do begin
+                          // PREGUNTAR
+                          if not(eof(archCategorias)) then begin // MAS QUE NADA ESTO
+                             readln(archCategorias, lineaStr);
+                             act.pregunta:= lineaStr;
+                             for Iopciones:= 'A' to constOPCIONES do begin
+                                 readln(archCategorias, lineaStr);
+                                 act.opciones[Iopciones]:= lineaStr;
+                             end;
+                             readln(archCategorias, lineaChar);
+                             act.respuesta:= lineaChar;
+                             m[I,J]:= act;
                           end;
+                      end;
                   end;
                   close(archCategorias);
           end;

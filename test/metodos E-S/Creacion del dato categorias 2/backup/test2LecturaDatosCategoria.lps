@@ -9,13 +9,13 @@
         <Filename Value="test2LecturaDatosCategoria.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="41"/>
-        <CursorPos X="53" Y="56"/>
+        <TopLine Value="20"/>
+        <CursorPos X="29" Y="43"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="5">
+    <JumpHistory HistoryIndex="8">
       <Position>
         <Filename Value="test2LecturaDatosCategoria.lpr"/>
         <Caret Line="56" Column="25" TopLine="20"/>
@@ -39,6 +39,18 @@
       <Position>
         <Filename Value="test2LecturaDatosCategoria.lpr"/>
         <Caret Line="40" Column="63" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="test2LecturaDatosCategoria.lpr"/>
+        <Caret Line="56" Column="53" TopLine="41"/>
+      </Position>
+      <Position>
+        <Filename Value="test2LecturaDatosCategoria.lpr"/>
+        <Caret Line="64" Column="73" TopLine="50"/>
+      </Position>
+      <Position>
+        <Filename Value="test2LecturaDatosCategoria.lpr"/>
+        <Caret Line="56" Column="48" TopLine="50"/>
       </Position>
     </JumpHistory>
     <RunParams>

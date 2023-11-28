@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="38"/>
+        <CursorPos Y="39"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="7">
+      <Position>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <Caret Line="49" Column="62" TopLine="33"/>
+      </Position>
+      <Position>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <Caret Line="22" Column="41" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <Caret Line="64" Column="28" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <Caret Line="71" Column="28" TopLine="60"/>
+      </Position>
+      <Position>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <Caret Line="70" Column="30" TopLine="50"/>
+      </Position>
+      <Position>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <Caret Line="106" Column="49" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <Caret Line="52" Column="5" TopLine="39"/>
+      </Position>
+      <Position>
+        <Filename Value="test3LecturaDatosCategoria.lpr"/>
+        <Caret Line="64" Column="43" TopLine="51"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -9,18 +9,17 @@
         <Filename Value="tpPromoMain.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="31"/>
-        <CursorPos X="196" Y="79"/>
+        <TopLine Value="84"/>
+        <CursorPos X="40" Y="27"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="D:\lazarus\fpc\3.2.2\source\packages\rtl-console\src\win\crt.pp"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="493"/>
         <CursorPos X="10" Y="499"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="8">
