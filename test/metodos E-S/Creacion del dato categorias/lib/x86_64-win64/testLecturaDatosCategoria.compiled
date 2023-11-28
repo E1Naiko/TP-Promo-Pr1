@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="D:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1420791944"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw3 -gl -l -vewnhibq &quot;-FuD:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\metodos E-S\Creacion del dato categorias\&quot; &quot;-FUD:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\metodos E-S\Creacion del dato categorias\lib\x86_64-win64\&quot; &quot;-FED:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\metodos E-S\Creacion del dato categorias\&quot; &quot;-oD:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\metodos E-S\Creacion del dato categorias\testLecturaDatosCategoria.exe&quot; testLecturaDatosCategoria.pas"/>
+  <Complete Value="False"/>
+</CONFIG>

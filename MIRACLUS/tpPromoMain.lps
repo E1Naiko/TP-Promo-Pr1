@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="tpPromoMain.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="31"/>
+        <CursorPos X="196" Y="79"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\lazarus\fpc\3.2.2\source\packages\rtl-console\src\win\crt.pp"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="493"/>
+        <CursorPos X="10" Y="499"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="8">
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="14" Column="21"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="9" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="14" Column="6"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="15" Column="63"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="34" Column="25" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="50" Column="68" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="67" TopLine="37"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="71" Column="87" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="81" Column="31" TopLine="57"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

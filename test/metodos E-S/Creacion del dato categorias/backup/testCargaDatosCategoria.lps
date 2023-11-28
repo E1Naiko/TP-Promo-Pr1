@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="testCargaDatosCategoria.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="36" Y="2"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="libMatrices.pas"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="9" Y="4"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="6">
+      <Position>
+        <Filename Value="testCargaDatosCategoria.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="testCargaDatosCategoria.pas"/>
+        <Caret Line="110" Column="41" TopLine="83"/>
+      </Position>
+      <Position>
+        <Filename Value="testCargaDatosCategoria.pas"/>
+        <Caret Line="112" Column="60" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="testCargaDatosCategoria.pas"/>
+        <Caret Line="123" Column="15" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="testCargaDatosCategoria.pas"/>
+        <Caret Line="110" Column="41" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="testCargaDatosCategoria.pas"/>
+        <Caret Line="21" Column="67"/>
+      </Position>
+      <Position>
+        <Filename Value="testCargaDatosCategoria.pas"/>
+        <Caret Line="61" Column="2" TopLine="50"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
