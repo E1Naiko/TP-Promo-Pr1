@@ -11,7 +11,6 @@ type
     arrOpciones = array [subrOpciones] of cadenaOpci;
     tipoPreguntas = record
                   numCategoria: subrCategorias;
-                  cara: boolean; // DISCUTIR
                   pregunta: cadenaPreg;
                   opciones: arrOpciones;
 		  respuesta: subrOpciones;
@@ -31,7 +30,6 @@ procedure imprimirPregunta(p: tipoPreguntas);
 	begin
 		with p do begin
                         writeln(' - Categoria: ', numCategoria);
-                        writeln(' -- Cara de diamante: ', cara);
 			writeln(' -- Pregunta: ', pregunta);
 			writeln(' --- Opciones:');
 			for I:='A' to constOPCIONES do
@@ -95,12 +93,10 @@ procedure cargarVDL(var vdl: vdlCategorias);
                   assign(archCategorias, 'DEBUGcategorias.txt');
                   reset(archCategorias);
                   while not(eof(archCategorias)) do begin
-                          // leo a que categoria pertenece la pregunta y si es cara o no
+                          // leo a que categoria pertenece la pregunta
                           with linea do begin
                             readln(archCategorias, cat);
                             act.numCategoria:= cat;
-                            readln(archCategorias, cara);
-                            act.cara:= cara = 'TRUE';
 
                             // leo la pregunta en si y sus opciones
                             readln(archCategorias, preg);

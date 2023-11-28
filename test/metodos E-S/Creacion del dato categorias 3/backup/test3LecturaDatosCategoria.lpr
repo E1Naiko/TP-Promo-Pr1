@@ -31,7 +31,7 @@ procedure imprimirPregunta(p: tipoPreguntas);
 	begin
 		with p do begin
                         writeln(' - Categoria: ', numCategoria);
-                        writeln(' -- Cara de diamante', cara);
+                        writeln(' -- Cara de diamante: ', cara);
 			writeln(' -- Pregunta: ', pregunta);
 			writeln(' --- Opciones:');
 			for I:='A' to constOPCIONES do
