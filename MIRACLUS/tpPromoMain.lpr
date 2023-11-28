@@ -138,7 +138,7 @@ procedure jugadorPerdio();
 
 
 // --------------------------- MODULOS JUEGO ---------------------------
-procedure partida(vdl: vdlCategorias);
+procedure partida(vdl: vdlCategorias; res: boolean);
           begin
 
           end;
@@ -243,6 +243,7 @@ var
    resultado: boolean;
 begin
      // inicializacion
+     resultado:= false;
      cargarVDL(vdl); // normalmente en la practica trabajamos con un "se dispone", decidimos crear un archivo 'categorias.txt' para cargarlo
      clrscr;
 

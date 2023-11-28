@@ -58,6 +58,17 @@ procedure precEnter(); // espera a que el jugador precione "ENTER" para continua
                       until K = #13;
           end;
 
+procedure precESC(); // espera a que el jugador precione "ESC" para continuar
+          var K: char;
+          begin
+               writeln;
+               writeln('                ------------------------------------------------------------------------------');
+               writeln('                                Precione "ESC" para cerrar el programa');
+               writeln('                ------------------------------------------------------------------------------');
+               repeat K:= readkey;
+               until K = #27;
+          end;
+
 procedure intro();
           procedure apertura(); // UI - imprime la portada del juego y narra la historia del mismo
                     begin
@@ -106,15 +117,14 @@ procedure intro();
                clrscr;
          end;
 
-procedure precESC(); // espera a que el jugador precione "ESC" para continuar
-          var K: char;
+procedure jugadorGano();
           begin
-               writeln;
-               writeln('                ------------------------------------------------------------------------------');
-               writeln('                                Precione "ESC" para cerrar el programa');
-               writeln('                ------------------------------------------------------------------------------');
-               repeat K:= readkey;
-               until K = #27;
+
+          end;
+
+procedure jugadorPerdio();
+          begin
+
           end;
 
 
@@ -127,10 +137,8 @@ procedure precESC(); // espera a que el jugador precione "ESC" para continuar
 
 
 
-
-
 // --------------------------- MODULOS JUEGO ---------------------------
-procedure partida(vdl: vdlCategorias);
+procedure partida(vdl: vdlCategorias; res: boolean);
           begin
 
           end;
