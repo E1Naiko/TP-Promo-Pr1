@@ -4,7 +4,7 @@ const
      constOPCIONES = 'C';
      constCATEGORIAS = 5;
 type
-    subrOpciones = 'A'..constOPCIONES;
+    subrOpciones = 'A' .. constOPCIONES;
     subrCategorias = 1 .. constCATEGORIAS;
     cadenaPreg = string;
     cadenaOpci = string;
@@ -184,10 +184,72 @@ procedure contesto(ok: boolean; p: tipoPreguntas);
 
 
 // --------------------------- MODULOS JUEGO ---------------------------
-procedure partida(vdl: vdlCategorias; res: boolean);
-          begin
-
+Procedure Preguntas (Preguntas:Lista; error:integer);
+var
+   respuesta:cadenapreg; ok:boolean; puntaje:integer;
+begin
+     ok:= false; error:=0; puntaje:= 0;
+     while(Preguntas <> nil) do begin
+          imprimirPregunta(Preguntas^.datos);
+          writeln('Escribir Respuesta: ');
+          readln(respuesta);
+          respuesta:= UpperCase(respuesta);
+          if (respuesta = Preguntas^.datos.respuesta) then begin
+             ok:= true;
+             puntaje:= puntaje + 1;
+             contesto(ok,Preguntas^.datos);
+             Preguntas:= Preguntas^.sig;
+          end
+          else begin
+               error:= error + 1;
+               contesto(ok,Preguntas^.datos);
+               Preguntas:= Preguntas^.sig;
           end;
+          If (Preguntas^.sig = nil) then begin
+             writeln('Tenes un desafio');
+          end;
+     end;
+end;
+
+procedure partida(vdl: vdlCategorias; res: boolean);
+          var
+             color: string; valido:boolean; error:integer;
+          begin
+               valido:= false;
+               res:= false;
+               repeat
+                     writeln('Elegir un color');
+                     readln(color);
+                     color:= LowerCase(color);
+                     case color of
+                          'rojo' : begin
+                                        Valido:= true;
+                                        Preguntas(vdl[1],error);
+                                   end;
+                          'verde' : begin
+                                        Valido:= true;
+                                        Preguntas(vdl[2],error);
+                                    end;
+                          'azul' : begin
+                                        Valido:= true;
+                                        Preguntas(vdl[3],error);
+                                      end;
+                          'naranja' : begin
+                                        Valido:= true;
+                                        Preguntas(vdl[4],error);
+                                      end;
+                          'morado' : begin
+                                        Valido:= true;
+                                        Preguntas(vdl[5],error);
+                                     end;
+                          else Valido:= false;
+                     end;
+               until not (Valido);
+               if (error = 3) then
+                  res:= false;
+               //else
+
+               end;
 
 
 
