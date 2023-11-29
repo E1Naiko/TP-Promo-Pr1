@@ -42,7 +42,7 @@ type
   procedure precESC(); // espera a que el jugador precione "ESC" para continuar
   procedure nuevaPartida(var ok:boolean); // espera a que el jugador precione "ESC" o "ENTER"
   procedure intro(); // imprime la portada del juego
-  			procedure apertura(); // UI - imprime la portada del juego y narra la historia del mismo
+  			  procedure apertura(); // UI - imprime la portada del juego y narra la historia del mismo
 			  procedure reglas(); // UI - imprime las reglas del juego
   procedure jugadorGano(); // imprime la pantalla de juego terminado-Victoria
   procedure jugadorPerdio(); // imprime la pantalla de juego terminado-Derrota
