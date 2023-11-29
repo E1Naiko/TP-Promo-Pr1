@@ -11,16 +11,11 @@ type
 
     arrOpciones = array [subrOpciones] of cadenaOpci;
 
-    tipoResultado = record
-          correc, falso: cadenaOpci;
-    end;
-
     tipoPreguntas = record
                   numCategoria: subrCategorias;
                   pregunta: cadenaPreg;
                   opciones: arrOpciones;
-		  respuesta: subrOpciones;
-                  result: tipoResultado;
+		  respuesta, explicacion: subrOpciones;
 	end;
 
     lista = ^nodo;
@@ -163,13 +158,9 @@ procedure jugadorPerdio();
 
 procedure contesto(ok: boolean; p: tipoPreguntas);
           begin
-               if (ok) then begin
-                    writeln(' - Correcto la resupuesta es ', p.respuesta, ' ya que:');
-                    writeln(p.result.correc);
-               end else begin
-                    writeln(' - Fallaste la resupuesta es ', p.respuesta, ' ya que:');
-                    writeln(p.result.falso);
-               end;
+               if (ok) then writeln(' - Correcto la resupuesta es ', p.respuesta, ' ya que:')
+                  else writeln(' - Fallaste la resupuesta es ', p.respuesta, ' ya que:');
+               writeln(p.respuesta);
                writeln;
                precEnter();
           end;
@@ -185,35 +176,38 @@ procedure contesto(ok: boolean; p: tipoPreguntas);
 
 // --------------------------- MODULOS JUEGO ---------------------------
 Procedure Preguntas (Preguntas:Lista; error:integer);
-var
-   respuesta:cadenapreg; ok:boolean; puntaje:integer;
-begin
-     ok:= false; error:=0; puntaje:= 0;
-     while(Preguntas <> nil) do begin
-          imprimirPregunta(Preguntas^.datos);
-          writeln('Escribir Respuesta: ');
-          readln(respuesta);
-          respuesta:= UpperCase(respuesta);
-          if (respuesta = Preguntas^.datos.respuesta) then begin
-             ok:= true;
-             puntaje:= puntaje + 1;
-             contesto(ok,Preguntas^.datos);
-             Preguntas:= Preguntas^.sig;
-          end
-          else begin
-               error:= error + 1;
-               contesto(ok,Preguntas^.datos);
-               Preguntas:= Preguntas^.sig;
-          end;
-          If (Preguntas^.sig = nil) then begin
-             writeln('Tenes un desafio');
-          end;
-     end;
-end;
+          var
+             respuesta:cadenapreg;
+             ok:boolean;
+             puntaje: integer;
+          begin
+               ok:= false; error:=0; puntaje:= 0;
+               while (Preguntas <> nil) do begin
+                     imprimirPregunta(Preguntas^.datos);
+                     writeln('Escribir Respuesta: ');
+                     readln(respuesta);
+                     respuesta:= UpperCase(respuesta);
+                     if (respuesta = Preguntas^.datos.respuesta) then begin
+                        ok:= true;
+                        puntaje:= puntaje + 1;
+                        contesto(ok,Preguntas^.datos);
+                        Preguntas:= Preguntas^.sig;
+                     end
+                     else begin
+                          error:= error + 1;
+                          contesto(ok,Preguntas^.datos);
+                          Preguntas:= Preguntas^.sig;
+                     end;
+               end;
+               If (Preguntas^.sig = nil) then
+                  writeln('Tenes un desafio');
+           end;
 
 procedure partida(vdl: vdlCategorias; res: boolean);
           var
-             color: string; valido:boolean; error:integer;
+             color: string;
+             valido: boolean;
+             error:integer;
           begin
                valido:= false;
                res:= false;
@@ -249,7 +243,7 @@ procedure partida(vdl: vdlCategorias; res: boolean);
                   res:= false;
                //else
 
-               end;
+          end;
 
 
 
@@ -301,10 +295,9 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
                                    readln(archCategorias, act.opciones[Iopciones]);
                           end;
 
-                          // leo la respuesta correcta y sus respuestas
+                          // leo la respuesta correcta y su explicacion
                           readln(archCategorias, act.respuesta);
-                          readln(archCategorias, act.result.correc);
-                          readln(archCategorias, act.result.falso);
+                          readln(archCategorias, act.explicacion);
 
                           // agrego al Vector De Listas
                           agregarFinal(vdl[act.numCategoria], act);
@@ -330,6 +323,19 @@ procedure liberarMemVDL(var vdl: vdlCategorias); // libera la memoria ocupada po
                end;
           end;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // --------------------------- PROGRAMA PRINCIPAL ---------------------------
 var
    vdl: vdlCategorias;
@@ -353,4 +359,3 @@ begin
      precESC();
      liberarMemVDL(vdl);
 end.
-
