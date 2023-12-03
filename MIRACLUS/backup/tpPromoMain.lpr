@@ -4,7 +4,7 @@ const
      constOPCIONES = 'C';
      constCATEGORIAS = 5;
 type
-    subrOpciones = 'A'..constOPCIONES;
+    subrOpciones = 'A' .. constOPCIONES;
     subrCategorias = 1 .. constCATEGORIAS;
     cadenaPreg = string;
     cadenaOpci = string;
@@ -329,6 +329,18 @@ procedure liberarMemVDL(var vdl: vdlCategorias); // libera la memoria ocupada po
                    end;
                end;
           end;
+
+
+
+
+
+
+
+
+
+
+
+
 
 // --------------------------- PROGRAMA PRINCIPAL ---------------------------
 var
