@@ -3,10 +3,12 @@ uses crt, SysUtils;
 const
      constOPCIONES = 'C';
      constCATEGORIAS = 5;
+     constERRORES = 3;
 type
     subrOpciones = 'A' .. constOPCIONES;
     subrCategorias = 1 .. constCATEGORIAS;
     conjCompletadas = set of subrCategorias;
+    conjRespuestas = set of char;
     cadenaPreg = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
     cadenaOpci = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
 
@@ -178,11 +180,14 @@ procedure presentarColor({comp: conjCompletadas}); // presenta las opciones de c
                writeln('                                    ¿Que cara del Diamante deseas intentar completar?');
                writeln;
                writeln();
-               TextColor(Red);
+               //TextColor(Red);
           end;
 
 procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje final de cada partida
           begin
+               writeln('DEBUG');
+               writeln('Puntaje: ', puntaje);
+               writeln('Errores: ', error, '/', constERRORES)
 
           end;
 
@@ -196,9 +201,10 @@ procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje f
 // --------------------------- MODULOS JUEGO ---------------------------
 Procedure Preguntas (Preguntas: Lista; var puntaje, error: integer);
           var
-             respuesta: cadenapreg;
-             ok: boolean;
+             respuesta: subrOpciones;
+             ok: boolean;  conjres: conjRespuestas;
           begin
+               conjres:= ['A','B','C','a','b','c'];
                ok:= false; error:=0; puntaje:= 0;
                while (Preguntas <> nil) do begin
                      imprimirPregunta(Preguntas^.datos);
@@ -206,24 +212,30 @@ Procedure Preguntas (Preguntas: Lista; var puntaje, error: integer);
                      //
                      writeln('Escribir Respuesta: ');
                      readln(respuesta);
-                     respuesta:= UpperCase(respuesta);
-
-                     if (respuesta = Preguntas^.datos.respuesta) then begin
-                        ok:= true;
-                        puntaje:= puntaje + 1;
-                        contesto(ok,Preguntas^.datos);
-                        Preguntas:= Preguntas^.sig;
+                     respuesta:= UpCase(respuesta);
+                     if (respuesta in conjres) then begin
+                        if (respuesta = Preguntas^.datos.respuesta) then begin
+                           ok:= true;
+                           puntaje:= puntaje + 1;
+                           contesto(ok,Preguntas^.datos);
+                           Preguntas:= Preguntas^.sig;
+                           ClrScr;       // Limpia la pantalla al pasar a la siguiente pregunta
+                        end
+                        else begin
+                             error:= error + 1;
+                             contesto(ok,Preguntas^.datos);
+                             Preguntas:= Preguntas^.sig;
+                             ClrScr;     // Limpia la pantalla al pasar a la siguiente pregunta
+                        end;
+                     If (Preguntas^.sig = nil) then begin
+                       writeln('Tenes una pregunta desafio');
+                       end;
                      end
                      else begin
-                          error:= error + 1;
-                          contesto(ok,Preguntas^.datos);
-                          Preguntas:= Preguntas^.sig;
-                     end;
-
-                    If (Preguntas^.sig = nil) then begin
-                       writeln('Tenes un desafio');
-                       end;
+                     writeln('Respuesta Invalida ingreselo de nuevo: ');
+                     readln (respuesta);
                end;
+          end;
      end;
 
 procedure partida(vdl: vdlCategorias; res: boolean; var puntaje, error: integer);
@@ -242,6 +254,7 @@ procedure partida(vdl: vdlCategorias; res: boolean; var puntaje, error: integer)
                      presentarColor({completadas});
                      readln(color);
                      color:= LowerCase(color);
+
                      case color of
                           'rojo' : begin
                                         Valido:= true;
@@ -272,7 +285,7 @@ procedure partida(vdl: vdlCategorias; res: boolean; var puntaje, error: integer)
 
                Preguntas(vdl[catActual], puntaje, error);
                until not (Valido);
-               if (error = 3) then
+               if (error >= 3) then
                   res:= false;
                //else
 
@@ -392,4 +405,3 @@ begin
      precESC();
      liberarMemVDL(vdl);
 end.
-
