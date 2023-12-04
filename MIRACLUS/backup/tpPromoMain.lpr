@@ -6,21 +6,18 @@ const
 type
     subrOpciones = 'A' .. constOPCIONES;
     subrCategorias = 1 .. constCATEGORIAS;
-    cadenaPreg = string;
-    cadenaOpci = string;
+    conjCompletadas = set of subrCategorias;
+    cadenaPreg = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
+    cadenaOpci = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
 
     arrOpciones = array [subrOpciones] of cadenaOpci;
-
-    tipoResultado = record
-          correc, falso: cadenaOpci;
-    end;
 
     tipoPreguntas = record
                   numCategoria: subrCategorias;
                   pregunta: cadenaPreg;
                   opciones: arrOpciones;
 		  respuesta: subrOpciones;
-                  result: tipoResultado;
+                  explicacion: cadenaOpci;
 	end;
 
     lista = ^nodo;
@@ -120,10 +117,12 @@ procedure intro();
           procedure reglas(); // UI - imprime las reglas del juego
                     begin
                          writeln('                                                  --REGLAS--');
-                         writeln('Deberas elegir entre 5 colores correspondientes a la cara del diamante, si contestas bien todas las preguntas correspondientes a cada cara del DIAMANTE DEL LEON ');
+                         writeln('            Deberas elegir entre 5 colores correspondientes a la cara del diamante,');
+                         writeln('     si contestas bien todas las preguntas correspondientes a cada cara del DIAMANTE DEL LEON ');
                     end;
 
           begin
+               clrscr;
                apertura();
                precEnter();
 
@@ -136,6 +135,7 @@ procedure intro();
 
 procedure jugadorGano();
           begin
+            clrscr;
             writeln('                ------------------------------------------------------------------------------');
             writeln;
             writeln('                                               FELICIDADES');
@@ -150,6 +150,7 @@ procedure jugadorGano();
 
 procedure jugadorPerdio();
           begin
+               clrscr;
                writeln('                ------------------------------------------------------------------------------');
                writeln;
                writeln('                                               JUEGO TERMINADO');
@@ -163,18 +164,27 @@ procedure jugadorPerdio();
 
 procedure contesto(ok: boolean; p: tipoPreguntas);
           begin
-               if (ok) then begin
-                    writeln(' - Correcto la resupuesta es ', p.respuesta, ' ya que:');
-                    writeln(p.result.correc);
-               end else begin
-                    writeln(' - Fallaste la resupuesta es ', p.respuesta, ' ya que:');
-                    writeln(p.result.falso);
-               end;
+               if (ok) then writeln(' - Correcto la resupuesta es ', p.respuesta, ' ya que:')
+                       else writeln(' - Fallaste la resupuesta es ', p.respuesta, ' ya que:');
+               writeln(p.explicacion);
                writeln;
                precEnter();
           end;
 
+procedure presentarColor({comp: conjCompletadas}); // presenta las opciones de colores ------------------------------------------------------------ REVISAR OPCIONES YA COMPLETADAS
+          begin
+               writeln('                ------------------------------------------------------------------------------');
+               writeln;
+               writeln('                                    ¿Que cara del Diamante deseas intentar completar?');
+               writeln;
+               writeln();
+               TextColor(Red);
+          end;
 
+procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje final de cada partida
+          begin
+
+          end;
 
 
 
@@ -184,66 +194,83 @@ procedure contesto(ok: boolean; p: tipoPreguntas);
 
 
 // --------------------------- MODULOS JUEGO ---------------------------
-Procedure Preguntas (Preguntas:Lista; error:integer);
-var
-   respuesta:cadenapreg; ok:boolean; puntaje:integer;
-begin
-     ok:= false; error:=0; puntaje:= 0;
-     while(Preguntas <> nil) do begin
-          imprimirPregunta(Preguntas^.datos);
-          writeln('Escribir Respuesta: ');
-          readln(respuesta);
-          respuesta:= UpperCase(respuesta);
-          if (respuesta = Preguntas^.datos.respuesta) then begin
-             ok:= true;
-             puntaje:= puntaje + 1;
-             contesto(ok,Preguntas^.datos);
-             Preguntas:= Preguntas^.sig;
-          end
-          else begin
-               error:= error + 1;
-               contesto(ok,Preguntas^.datos);
-               Preguntas:= Preguntas^.sig;
-          end;
-          If (Preguntas^.sig = nil) then begin
-             writeln('Tenes un desafio');
-          end;
-     end;
-end;
-
-procedure partida(vdl: vdlCategorias; res: boolean);
+Procedure Preguntas (Preguntas: Lista; var puntaje, error: integer);
           var
-             color: string; valido:boolean; error:integer;
+             respuesta: cadenapreg;
+             ok: boolean;
+          begin
+               ok:= false; error:=0; puntaje:= 0;
+               while (Preguntas <> nil) do begin
+                     imprimirPregunta(Preguntas^.datos);
+
+                     //
+                     writeln('Escribir Respuesta: ');
+                     readln(respuesta);
+                     respuesta:= UpperCase(respuesta);
+
+                     if (respuesta = Preguntas^.datos.respuesta) then begin
+                        ok:= true;
+                        puntaje:= puntaje + 1;
+                        contesto(ok,Preguntas^.datos);
+                        Preguntas:= Preguntas^.sig;
+                     end
+                     else begin
+                          error:= error + 1;
+                          contesto(ok,Preguntas^.datos);
+                          Preguntas:= Preguntas^.sig;
+                     end;
+
+                    If (Preguntas^.sig = nil) then begin
+                       writeln('Tenes un desafio');
+                       end;
+               end;
+     end;
+
+procedure partida(vdl: vdlCategorias; res: boolean; var puntaje, error: integer);
+          var
+             color: string;
+             valido:boolean;
+             catActual: subrCategorias;
+             completadas: conjCompletadas;
           begin
                valido:= false;
                res:= false;
+               completadas:= []; // conjunto de categorias completadas
+
+               //
                repeat
-                     writeln('Elegir un color');
+                     presentarColor({completadas});
                      readln(color);
                      color:= LowerCase(color);
                      case color of
                           'rojo' : begin
                                         Valido:= true;
-                                        Preguntas(vdl[1],error);
+                                        catActual:= 1;
                                    end;
                           'verde' : begin
                                         Valido:= true;
-                                        Preguntas(vdl[2],error);
+                                        catActual:= 2;
                                     end;
                           'azul' : begin
                                         Valido:= true;
-                                        Preguntas(vdl[3],error);
+                                        catActual:= 3;
                                       end;
                           'naranja' : begin
                                         Valido:= true;
-                                        Preguntas(vdl[4],error);
+                                        catActual:= 4;
                                       end;
                           'morado' : begin
                                         Valido:= true;
-                                        Preguntas(vdl[5],error);
+                                        catActual:= 5;
                                      end;
                           else Valido:= false;
+                            if (catActual in completadas) then begin
+                               writeln('Categoria ya completada'); // ---------------------------------------------------------------- HACER UI
+                               Valido:= false;
+                            end;
                      end;
+
+               Preguntas(vdl[catActual], puntaje, error);
                until not (Valido);
                if (error = 3) then
                   res:= false;
@@ -289,7 +316,7 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
                   for I:=1 to constCATEGORIAS do   vdl[I]:= nil;
 
                   // cargo datos desde el archivo 'categorias.txt'
-                  assign(archCategorias, 'DEBUGcategorias.txt'); // CAMBIARLO A categorias.txt -------------------------------------------------------------
+                  assign(archCategorias, 'DEBUGcategorias.txt'); // ------------------------------------------------------------- CAMBIARLO A categorias.txt
                   reset(archCategorias);
                   while not(eof(archCategorias)) do begin
                           // leo a que categoria pertenece la pregunta
@@ -303,8 +330,7 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
 
                           // leo la respuesta correcta y sus respuestas
                           readln(archCategorias, act.respuesta);
-                          readln(archCategorias, act.result.correc);
-                          readln(archCategorias, act.result.falso);
+                          readln(archCategorias, act.explicacion);
 
                           // agrego al Vector De Listas
                           agregarFinal(vdl[act.numCategoria], act);
@@ -346,19 +372,20 @@ procedure liberarMemVDL(var vdl: vdlCategorias); // libera la memoria ocupada po
 var
    vdl: vdlCategorias;
    resultado, ok: boolean;
+   puntaje, error: integer;
 begin
      // inicializacion
-     resultado:= false; ok:=false;
+     resultado:= false; ok:= false;
      cargarVDL(vdl); // normalmente en la practica trabajamos con un "se dispone", decidimos crear un archivo 'categorias.txt' para cargarlo
-     clrscr;
 
      // principal
      intro();
      while not(ok) do begin
-           partida(vdl, resultado);
+           partida(vdl, resultado, puntaje, error);
 
            if (resultado) then jugadorGano()
-                       else jugadorPerdio();
+                          else jugadorPerdio();
+           presentarPuntuacion(puntaje, error);
            nuevaPartida(ok);
      end;
      // termina el juego

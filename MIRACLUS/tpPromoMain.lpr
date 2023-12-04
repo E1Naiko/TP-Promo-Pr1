@@ -6,21 +6,18 @@ const
 type
     subrOpciones = 'A' .. constOPCIONES;
     subrCategorias = 1 .. constCATEGORIAS;
-    cadenaPreg = string;
-    cadenaOpci = string;
+    conjCompletadas = set of subrCategorias;
+    cadenaPreg = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
+    cadenaOpci = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
 
     arrOpciones = array [subrOpciones] of cadenaOpci;
-
-    tipoResultado = record
-          correc, falso: cadenaOpci;
-    end;
 
     tipoPreguntas = record
                   numCategoria: subrCategorias;
                   pregunta: cadenaPreg;
                   opciones: arrOpciones;
 		  respuesta: subrOpciones;
-                  result: tipoResultado;
+                  explicacion: cadenaOpci;
 	end;
 
     lista = ^nodo;
@@ -167,22 +164,27 @@ procedure jugadorPerdio();
 
 procedure contesto(ok: boolean; p: tipoPreguntas);
           begin
-               if (ok) then begin
-                    writeln(' - Correcto la resupuesta es ', p.respuesta, ' ya que:');
-                    writeln(p.result.correc);
-               end else begin
-                    writeln(' - Fallaste la resupuesta es ', p.respuesta, ' ya que:');
-                    writeln(p.result.falso);
-               end;
+               if (ok) then writeln(' - Correcto la resupuesta es ', p.respuesta, ' ya que:')
+                       else writeln(' - Fallaste la resupuesta es ', p.respuesta, ' ya que:');
+               writeln(p.explicacion);
                writeln;
                precEnter();
           end;
 
-procedure presentarColor();
+procedure presentarColor({comp: conjCompletadas}); // presenta las opciones de colores ------------------------------------------------------------ REVISAR OPCIONES YA COMPLETADAS
+          begin
+               writeln('                ------------------------------------------------------------------------------');
+               writeln;
+               writeln('                                    ¿Que cara del Diamante deseas intentar completar?');
+               writeln;
+               writeln();
+               //TextColor(Red);
+          end;
+
+procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje final de cada partida
           begin
 
           end;
-
 
 
 
@@ -225,20 +227,19 @@ Procedure Preguntas (Preguntas: Lista; var puntaje, error: integer);
      end;
 
 procedure partida(vdl: vdlCategorias; res: boolean; var puntaje, error: integer);
-          type
-              conjCompletadas = set of subrCategorias;
           var
              color: string;
              valido:boolean;
              catActual: subrCategorias;
+             completadas: conjCompletadas;
           begin
                valido:= false;
                res:= false;
-               conjCompletadas:= []; // conjunto de categorias completadas
+               completadas:= []; // conjunto de categorias completadas
 
                //
                repeat
-                     presentarColor();
+                     presentarColor({completadas});
                      readln(color);
                      color:= LowerCase(color);
                      case color of
@@ -263,7 +264,7 @@ procedure partida(vdl: vdlCategorias; res: boolean; var puntaje, error: integer)
                                         catActual:= 5;
                                      end;
                           else Valido:= false;
-                            if (catActual in conjCompletadas) then begin
+                            if (catActual in completadas) then begin
                                writeln('Categoria ya completada'); // ---------------------------------------------------------------- HACER UI
                                Valido:= false;
                             end;
@@ -329,8 +330,7 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
 
                           // leo la respuesta correcta y sus respuestas
                           readln(archCategorias, act.respuesta);
-                          readln(archCategorias, act.result.correc);
-                          readln(archCategorias, act.result.falso);
+                          readln(archCategorias, act.explicacion);
 
                           // agrego al Vector De Listas
                           agregarFinal(vdl[act.numCategoria], act);
@@ -372,6 +372,7 @@ procedure liberarMemVDL(var vdl: vdlCategorias); // libera la memoria ocupada po
 var
    vdl: vdlCategorias;
    resultado, ok: boolean;
+   puntaje, error: integer;
 begin
      // inicializacion
      resultado:= false; ok:= false;
@@ -380,10 +381,11 @@ begin
      // principal
      intro();
      while not(ok) do begin
-           partida(vdl, resultado);
+           partida(vdl, resultado, puntaje, error);
 
            if (resultado) then jugadorGano()
                           else jugadorPerdio();
+           presentarPuntuacion(puntaje, error);
            nuevaPartida(ok);
      end;
      // termina el juego

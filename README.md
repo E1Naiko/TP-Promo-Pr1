@@ -2,25 +2,32 @@
 
 ---------------------------------------------------------------------------------
 
+## TYPE
 ```
-// --------------------------------------- TYPE ---------------------------------------
+uses crt, SysUtils;
 const
      constOPCIONES = 'C';
      constCATEGORIAS = 5;
 type
     subrOpciones = 'A' .. constOPCIONES;
     subrCategorias = 1 .. constCATEGORIAS;
+    conjCompletadas = set of subrCategorias;
     cadenaPreg = string;
     cadenaOpci = string;
 
     arrOpciones = array [subrOpciones] of cadenaOpci;
 
+    tipoResultado = record
+          correc, falso: cadenaOpci;
+    end;
+
     tipoPreguntas = record
                   numCategoria: subrCategorias;
                   pregunta: cadenaPreg;
                   opciones: arrOpciones;
-		  respuesta, explicacion: subrOpciones;
-	end;
+		          respuesta: subrOpciones;
+                  result: tipoResultado;
+	  end;
 
     lista = ^nodo;
     nodo = record
@@ -47,6 +54,8 @@ type
   procedure jugadorGano(); // imprime la pantalla de juego terminado-Victoria
   procedure jugadorPerdio(); // imprime la pantalla de juego terminado-Derrota
   procedure contesto(ok: boolean; p: tipoPreguntas); // imprime en pantalla si la respuesta del jugador es correcta y su explicacion
+  procedure presentarColor(); // presenta las opciones de colores
+  procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje final de cada partida
   ```
 
 ### JUEGO
