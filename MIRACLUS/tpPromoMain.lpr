@@ -45,6 +45,7 @@ type
 procedure imprimirPregunta(p: tipoPreguntas); // UI - imprime la pregunta actual
           var I: subrOpciones;
           begin
+               clrscr;
                with p do begin
                     writeln(' - Pregunta: ', pregunta);
                     writeln(' -- Opciones:');
@@ -165,8 +166,8 @@ procedure jugadorPerdio();
 
 procedure contesto(ok: boolean; p: tipoPreguntas);
           begin
-               if (ok) then writeln(' - Correcto la resupuesta es ', p.respuesta, ' ya que:')
-                       else writeln(' - Fallaste la resupuesta es ', p.respuesta, ' ya que:');
+               if (ok) then writeln(' - Correcto la respuesta es ', p.respuesta, ' ya que:')
+                       else writeln(' - Fallaste la respuesta es ', p.respuesta, ' ya que:');
                writeln(p.explicacion);
                writeln;
                precEnter();
@@ -179,7 +180,17 @@ procedure presentarColor({comp: conjCompletadas}); // presenta las opciones de c
                writeln('                                    ¿Que cara del Diamante deseas intentar completar?');
                writeln;
                writeln();
-               //TextColor(Red);
+               TextColor(Red);
+               write('Rojo: "1 - Conceptos Introductorios" ');
+               TextColor(LightGreen);
+               write('Verde: "II - Modularización, parámetros" ');
+               TextColor(Blue);
+               write('Azul: "III - Organizacion" ');
+               TextColor(Yellow);
+               write('Amarillo: "IV - Estructuras de control de datos y registros" ');
+               TextColor(LightMagenta);
+               write('Morado: "V - Arreglos y Listas" ');
+               TextColor(white);
           end;
 
 procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje final de cada partida
@@ -188,6 +199,40 @@ procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje f
                writeln('Puntaje: ', puntaje);
                writeln('Errores: ', error, '/', constERRORES)
 
+          end;
+          
+procedure presentarColor(comp: conjCompletadas); // presenta las opciones de colores ------------------------------------------------------------ REVISAR OPCIONES YA COMPLETADAS
+          begin
+               writeln('                ------------------------------------------------------------------------------');
+               writeln;
+               writeln('                                    ¿Que cara del Diamante deseas intentar completar?');
+               writeln;
+               writeln();
+               
+               // IMPRIMIMOS LAS CATEGORIAS
+               write('         -- ');
+               TextColor(Red);
+               
+               IF (1 in comp) then write('CARA ROJA OBTENIDA --')
+                              else write('Rojo: "1 - Conceptos Introductorios" -- ');
+               
+               TextColor(LightGreen);
+               IF (2 in comp) then write('CARA VERDE OBTENIDA --')
+                              else write('Verde: "II - Modularización, parámetros" -- ');
+               
+               TextColor(Blue);
+               IF (3 in comp) then write('CARA AZUL OBTENIDA --')
+                              else write('Azul: "III - Organizacion" -- ');
+               
+               TextColor(Yellow);
+               IF (4 in comp) then write('CARA AMARILLA OBTENIDA --')
+                              else write('Amarillo: "IV - Estructuras de control de datos y registros" -- ');
+               
+               TextColor(LightMagenta);
+               IF (5 in comp) then write('CARA MORADA OBTENIDA --')
+                              else write('Morado: "V - Arreglos y Listas" --');
+               
+               TextColor(white);
           end;
 
 
