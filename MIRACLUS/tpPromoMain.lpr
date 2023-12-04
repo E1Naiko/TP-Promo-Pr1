@@ -3,6 +3,7 @@ uses crt, SysUtils;
 const
      constOPCIONES = 'C';
      constCATEGORIAS = 5;
+     constERRORES = 3;
 type
     subrOpciones = 'A' .. constOPCIONES;
     subrCategorias = 1 .. constCATEGORIAS;
@@ -183,6 +184,9 @@ procedure presentarColor({comp: conjCompletadas}); // presenta las opciones de c
 
 procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje final de cada partida
           begin
+               writeln('DEBUG');
+               writeln('Puntaje: ', puntaje);
+               writeln('Errores: ', error, '/', constERRORES)
 
           end;
 
@@ -392,4 +396,3 @@ begin
      precESC();
      liberarMemVDL(vdl);
 end.
-
