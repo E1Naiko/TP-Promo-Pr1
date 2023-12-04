@@ -8,26 +8,24 @@ uses crt, SysUtils;
 const
      constOPCIONES = 'C';
      constCATEGORIAS = 5;
+     constERRORES = 3;
 type
     subrOpciones = 'A' .. constOPCIONES;
     subrCategorias = 1 .. constCATEGORIAS;
     conjCompletadas = set of subrCategorias;
+    conjRespuestas = set of char;
     cadenaPreg = string;
     cadenaOpci = string;
 
     arrOpciones = array [subrOpciones] of cadenaOpci;
 
-    tipoResultado = record
-          correc, falso: cadenaOpci;
-    end;
-
     tipoPreguntas = record
                   numCategoria: subrCategorias;
                   pregunta: cadenaPreg;
                   opciones: arrOpciones;
-		          respuesta: subrOpciones;
-                  result: tipoResultado;
-	  end;
+		  respuesta: subrOpciones;
+                  explicacion: cadenaOpci;
+	end;
 
     lista = ^nodo;
     nodo = record
