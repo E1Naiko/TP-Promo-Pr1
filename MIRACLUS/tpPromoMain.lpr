@@ -1,33 +1,37 @@
 program tpPromoMain;
 uses crt, SysUtils;
 const
-     constOPCIONES = 'C';
-     constCATEGORIAS = 5;
-     constERRORES = 3;
+	constOPCIONES = 'C';
+	constCATEGORIAS = 5;
+	constERRORES = 3;
 type
-    subrOpciones = 'A' .. constOPCIONES;
-    subrCategorias = 1 .. constCATEGORIAS;
-    conjCompletadas = set of subrCategorias;
-    cadenaPreg = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
-    cadenaOpci = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
-
-    arrOpciones = array [subrOpciones] of cadenaOpci;
-
-    tipoPreguntas = record
-                  numCategoria: subrCategorias;
-                  pregunta: cadenaPreg;
-                  opciones: arrOpciones;
-		  respuesta: subrOpciones;
-                  explicacion: cadenaOpci;
+	subrOpciones = 'A' .. constOPCIONES;
+	subrCategorias = 1 .. constCATEGORIAS;
+	
+	conjCompletadas = set of subrCategorias;
+	conjRespuestas = set of char;
+			
+	cadenaPreg = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
+	cadenaOpci = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
+	cadenaColores = string[6];
+		
+	arrOpciones = array [subrOpciones] of cadenaOpci;
+		
+	tipoPreguntas = record
+		numCategoria: subrCategorias;
+		pregunta: cadenaPreg;
+		opciones: arrOpciones;
+		respuesta: subrOpciones;
+		explicacion: cadenaOpci;
 	end;
-
-    lista = ^nodo;
-    nodo = record
-                  datos: tipoPreguntas;
-                  sig: lista;
-    end;
-
-    vdlCategorias = array [subrCategorias] of lista;
+		
+	lista = ^nodo;
+	nodo = record
+		datos: tipoPreguntas;
+		sig: lista;
+	end;
+		
+	vdlCategorias = array [subrCategorias] of lista;
 
 
 
@@ -119,8 +123,10 @@ procedure intro();
           procedure reglas(); // UI - imprime las reglas del juego
                     begin
                          writeln('                                                  --REGLAS--');
+                         writeln;
                          writeln('            Deberas elegir entre 5 colores correspondientes a la cara del diamante,');
                          writeln('     si contestas bien todas las preguntas correspondientes a cada cara del DIAMANTE DEL LEON ');
+                         writeln;
                     end;
 
           begin
@@ -134,6 +140,21 @@ procedure intro();
 
                clrscr;
          end;
+
+procedure outro();
+          begin
+               ClrScr;
+               writeln('                ------------------------------------------------------------------------------');
+               writeln('                                                 --MIRACLUS--');
+               writeln('                                                  _________');
+               writeln('                                               _ /_|_____|_\ _');
+               writeln('                                                 *. \ M / .*');
+               writeln('                                                   *.\ /.*');
+               writeln('                                                     *.*');
+               writeln;
+               writeln('                                              Gracias Por Jugar');
+               precESC();
+          end;
 
 procedure jugadorGano();
           begin
@@ -158,9 +179,6 @@ procedure jugadorPerdio();
                writeln('                                               JUEGO TERMINADO');
                writeln('                                     FALLASTE EN CONSEGUIR TODAS LAS CARAS');
                writeln('                                            DEL DIAMANTE DEL LEON');
-               writeln;
-               writeln('                                      ¿USARAS TUS PODERES PARA EL BIEN?');
-               writeln;
                writeln;
           end;
 
@@ -201,39 +219,50 @@ procedure presentarPuntuacion(puntaje, error: integer); // presenta el puntaje f
 
           end;
           
-procedure presentarColor(comp: conjCompletadas); // presenta las opciones de colores ------------------------------------------------------------ REVISAR OPCIONES YA COMPLETADAS
+procedure presentarColor(comp: conjCompletadas; errores: integer); // presenta las opciones de colores ------------------------------------------------------------ REVISAR OPCIONES YA COMPLETADAS
           begin
-               writeln('                ------------------------------------------------------------------------------');
-               writeln;
-               writeln('                                    ¿Que cara del Diamante deseas intentar completar?');
-               writeln;
-               writeln();
-               
-               // IMPRIMIMOS LAS CATEGORIAS
-               write('         -- ');
-               TextColor(Red);
-               
-               IF (1 in comp) then write('CARA ROJA OBTENIDA --')
-                              else write('Rojo: "1 - Conceptos Introductorios" -- ');
-               
-               TextColor(LightGreen);
-               IF (2 in comp) then write('CARA VERDE OBTENIDA --')
-                              else write('Verde: "II - Modularización, parámetros" -- ');
-               
-               TextColor(Blue);
-               IF (3 in comp) then write('CARA AZUL OBTENIDA --')
-                              else write('Azul: "III - Organizacion" -- ');
-               
-               TextColor(Yellow);
-               IF (4 in comp) then write('CARA AMARILLA OBTENIDA --')
-                              else write('Amarillo: "IV - Estructuras de control de datos y registros" -- ');
-               
-               TextColor(LightMagenta);
-               IF (5 in comp) then write('CARA MORADA OBTENIDA --')
-                              else write('Morado: "V - Arreglos y Listas" --');
-               
-               TextColor(white);
-          end;
+                ClrScr;
+		writeln('                ------------------------------------------------------------------------------');
+		writeln;
+		writeln('                                             -- Errores: ', errores, '/', constERRORES);
+		writeln('                                    ¿Que cara del Diamante deseas intentar completar?');
+		writeln;
+					
+		// IMPRIMIMOS LAS CATEGORIAS
+		TextColor(Red);
+					
+		IF (1 in comp) then writeln('         -- CARA ROJA OBTENIDA --')
+		  	       else writeln('         -- Rojo: "1 - Conceptos Introductorios" -- ');
+					
+		TextColor(LightGreen);
+		IF (2 in comp) then writeln('         -- CARA VERDE OBTENIDA --')
+			       else writeln('         -- Verde: "II - Modularización, parámetros" -- ');
+					
+		TextColor(LightBlue);
+		IF (3 in comp) then writeln('         -- CARA AZUL OBTENIDA --')
+		 	       else writeln('         -- Azul: "III - Organizacion" -- ');
+					
+					
+		TextColor(Yellow);
+		IF (4 in comp) then writeln('         -- CARA AMARILLA OBTENIDA --')
+			       else writeln('         -- Amarillo: "IV - Estructuras de control de datos y registros" -- ');
+					
+		TextColor(LightMagenta);
+		IF (5 in comp) then writeln('         -- CARA MORADA OBTENIDA --')
+			       else writeln('         -- Morado: "V - Arreglos y Listas" --');
+					
+		TextColor(white);
+		writeln;
+		writeln('Introduzca que clase desea intentar:');					
+	end;
+				
+procedure presentarPregunta(p: tipoPreguntas; errores: integer); // ----------------------------------------------------------------------------------------------------------- SIN TERMINAR
+	begin
+		clrscr;
+		writeln('                ------------------------------------------------------------------------------');
+		writeln('		categoria: ', p.numCategoria, ' -- Errores: ', errores, '/', constERRORES);
+		imprimirPregunta(p);
+	end;
 
 
 
@@ -243,89 +272,123 @@ procedure presentarColor(comp: conjCompletadas); // presenta las opciones de col
 
 
 // --------------------------- MODULOS JUEGO ---------------------------
-Procedure Preguntas (Preguntas: Lista; var puntaje, error: integer);
+procedure elegirColor(var catActual: subrCategorias; completadas: conjCompletadas; var valido: boolean);
           var
-             respuesta: cadenapreg;
-             ok: boolean;
-          begin
-               ok:= false; error:=0; puntaje:= 0;
-               while (Preguntas <> nil) do begin
-                     imprimirPregunta(Preguntas^.datos);
+	     color: string;
+	  begin
+             readln(color);
+             color:= LowerCase(color);
+			
+             case color of
+                  'rojo' : begin
+                                Valido:= true;
+                                catActual:= 1;
+                           end;
+                  'verde' : begin
+                                Valido:= true;
+                                catActual:= 2;
+                            end;
+                  'azul' : begin
+                                Valido:= true;
+                                catActual:= 3;
+                              end;
+                  'amarillo' : begin
+                                Valido:= true;
+                                catActual:= 4;
+                              end;
+                  'morado' : begin
+                                Valido:= true;
+                                catActual:= 5;
+                             end;
+                  else Valido:= false;
+                    if (catActual in completadas) then begin
+                       writeln('Categoria ya completada'); // ---------------------------------------------------------------- HACER UI
+                       Valido:= false;
+                    end;
+             end;
+		  end;
 
-                     //
+Procedure Preguntas(var Preguntas: Lista; var puntaje, error: integer; var ok: boolean; var completadas: conjCompletadas);
+          var
+             respuesta: subrOpciones;
+             conjres: conjRespuestas;
+          begin
+			   // inicializo
+               conjres:= ['A','B','C'];
+               
+               // recorro cada preguntas
+               while (Preguntas <> nil) and (ok) and (error < constERRORES) do begin
+                     presentarPregunta(Preguntas^.datos, error);
+					 
+		     // detecto que llego a la ultima pregunta: pregunta que da la cara del diamante
+                     If (Preguntas^.sig = nil) then
+                        writeln('ESTA PREGUNTA TE PUEDE OTORGAR UNA CARA DEL DIAMANTE.');
+                     
                      writeln('Escribir Respuesta: ');
                      readln(respuesta);
-                     respuesta:= UpperCase(respuesta);
+                     respuesta:= UpCase(respuesta);
+                     
+                     // detecto si la respuesta es valida
+                     if (respuesta in conjres) then begin
 
-                     if (respuesta = Preguntas^.datos.respuesta) then begin
-                        ok:= true;
-                        puntaje:= puntaje + 1;
-                        contesto(ok,Preguntas^.datos);
-                        Preguntas:= Preguntas^.sig;
-                     end
-                     else begin
-                          error:= error + 1;
-                          contesto(ok,Preguntas^.datos);
-                          Preguntas:= Preguntas^.sig;
-                     end;
+                        // caso que la pregunta sea correcta
+                        if (respuesta = Preguntas^.datos.respuesta) then begin
+                           puntaje:= puntaje + 1;
+                           contesto(ok,Preguntas^.datos);
 
-                    If (Preguntas^.sig = nil) then begin
-                       writeln('Tenes un desafio');
-                       end;
-               end;
-     end;
+                           if (preguntas^.sig = nil) then completadas:= completadas + [Preguntas^.datos.numCategoria];
+                           Preguntas:= Preguntas^.sig;
 
-procedure partida(vdl: vdlCategorias; res: boolean; var puntaje, error: integer);
+                        end
+                        
+                        // caso que la respuesta se incorrecta
+                        else begin
+							 ok:= false;
+                             error:= error + 1;
+                             contesto(ok,Preguntas^.datos);
+                             Preguntas:= Preguntas^.sig;
+                        end;
+                        
+                        { ------------------------------------------------------------------------------------------------------- IMPLEMENTAR DE OTRA FORMA
+                        // caso que la respuesta sea invalida
+                        else begin
+							writeln('Respuesta Invalida ingreselo de nuevo: ');
+						end;
+					}
+		     end;
+	       end;
+	  end;
+
+procedure partida(vdl: vdlCategorias; var res: boolean; var puntaje, error: integer);
           var
-             color: string;
-             valido:boolean;
              catActual: subrCategorias;
-             completadas: conjCompletadas;
+             valido, ok: boolean; // valido: variable booleana que compara si el valor actual de color es adecuado ;ok: variable booleana que compara si la partida se puede continuar o no
+             completadas, fin: conjCompletadas;
           begin
+			   // inicializo
                valido:= false;
+               ok:= true;
                res:= false;
                completadas:= []; // conjunto de categorias completadas
+               fin:= [1,2,3,4,5];
+               
+               // repito hasta que se cumpla alguna de las condiciones de game over
+	       while (ok) and (error < constERRORES) and not(completadas = fin) do begin
+	             // leo colores hasta encontrar un color valido
+		     repeat
+				// presento cada color y comparo si se completo o es un color valido
+		  		presentarColor(completadas, error);
+		  		elegirColor(catActual, completadas, valido);
 
-               //
-               repeat
-                     presentarColor({completadas});
-                     readln(color);
-                     color:= LowerCase(color);
-                     case color of
-                          'rojo' : begin
-                                        Valido:= true;
-                                        catActual:= 1;
-                                   end;
-                          'verde' : begin
-                                        Valido:= true;
-                                        catActual:= 2;
-                                    end;
-                          'azul' : begin
-                                        Valido:= true;
-                                        catActual:= 3;
-                                      end;
-                          'naranja' : begin
-                                        Valido:= true;
-                                        catActual:= 4;
-                                      end;
-                          'morado' : begin
-                                        Valido:= true;
-                                        catActual:= 5;
-                                     end;
-                          else Valido:= false;
-                            if (catActual in completadas) then begin
-                               writeln('Categoria ya completada'); // ---------------------------------------------------------------- HACER UI
-                               Valido:= false;
-                            end;
-                     end;
-
-               Preguntas(vdl[catActual], puntaje, error);
-               until not (Valido);
-               if (error = 3) then
-                  res:= false;
-               //else
-
-               end;
+		     until (Valido);
+		     Preguntas(vdl[catActual], puntaje, error, ok, completadas);
+		     ok:= true;
+		end;
+				
+               puntaje:= puntaje-(error*2);
+               // actualizo resultado en caso que el jugador pierde
+	       res:= (error < constERRORES) and (completadas = fin);
+	  end;
 
 
 
@@ -424,12 +487,16 @@ var
    puntaje, error: integer;
 begin
      // inicializacion
-     resultado:= false; ok:= false;
+     resultado:= false;
+     ok:= false;
+
      cargarVDL(vdl); // normalmente en la practica trabajamos con un "se dispone", decidimos crear un archivo 'categorias.txt' para cargarlo
 
      // principal
      intro();
      while not(ok) do begin
+           error:= 0;
+           puntaje:= 0;
            partida(vdl, resultado, puntaje, error);
 
            if (resultado) then jugadorGano()
@@ -438,6 +505,6 @@ begin
            nuevaPartida(ok);
      end;
      // termina el juego
-     precESC();
+     outro();
      liberarMemVDL(vdl);
 end.
