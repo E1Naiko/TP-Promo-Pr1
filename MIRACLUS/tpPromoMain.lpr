@@ -45,6 +45,13 @@ type
 
 
 
+
+
+
+
+
+
+
 // --------------------------- MODULOS DE INTERFAZ DE USUARIO ---------------------------
 procedure imprimirPregunta(p: tipoPreguntas); // UI - imprime la pregunta actual
           var I: subrOpciones;
@@ -271,6 +278,18 @@ procedure presentarPregunta(p: tipoPreguntas; errores: integer); // ------------
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 // --------------------------- MODULOS JUEGO ---------------------------
 procedure elegirColor(var catActual: subrCategorias; completadas: conjCompletadas; var valido: boolean);
           var
@@ -301,6 +320,8 @@ procedure elegirColor(var catActual: subrCategorias; completadas: conjCompletada
                                 catActual:= 5;
                              end;
                   else Valido:= false;
+
+                    // ------------------------------------------------------------------------------------------------------- O ELIMINAR
                     if (catActual in completadas) then begin
                        writeln('Categoria ya completada'); // ---------------------------------------------------------------- HACER UI
                        Valido:= false;
@@ -343,7 +364,8 @@ Procedure Preguntas(var Preguntas: Lista; var puntaje, error: integer; var ok: b
                         
                         // caso que la respuesta se incorrecta
                         else begin
-							 ok:= false;
+                             // ------------------------------------------------------------------------------------ agregar caso que sea la ultima pregunta
+                             ok:= false;
                              error:= error + 1;
                              contesto(ok,Preguntas^.datos);
                              Preguntas:= Preguntas^.sig;
@@ -374,6 +396,7 @@ procedure partida(vdl: vdlCategorias; var res: boolean; var puntaje, error: inte
                
                // repito hasta que se cumpla alguna de las condiciones de game over
 	       while (ok) and (error < constERRORES) and not(completadas = fin) do begin
+
 	             // leo colores hasta encontrar un color valido
 		     repeat
 				// presento cada color y comparo si se completo o es un color valido
@@ -385,7 +408,7 @@ procedure partida(vdl: vdlCategorias; var res: boolean; var puntaje, error: inte
 		     ok:= true;
 		end;
 				
-               puntaje:= puntaje-(error*2);
+               puntaje:= puntaje-error;
                // actualizo resultado en caso que el jugador pierde
 	       res:= (error < constERRORES) and (completadas = fin);
 	  end;
@@ -402,9 +425,16 @@ procedure partida(vdl: vdlCategorias; var res: boolean; var puntaje, error: inte
 
 
 
+
+
+
+
+
+
+
 // --------------------------- MODULOS DE SISTEMA ---------------------------
 procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt' y se lo asigna a un Vector De Listas
-          procedure agregarFinal(var l: lista; elem: tipoPreguntas);
+          procedure agregarFinal(var l: lista; elem: tipoPreguntas); // ----------------------------------------------------------- optimizar
                     var act, ant, nue: lista;
                     begin
                             new(nue); nue^.datos:= elem; nue^.sig:= nil;
@@ -467,6 +497,13 @@ procedure liberarMemVDL(var vdl: vdlCategorias); // libera la memoria ocupada po
                    end;
                end;
           end;
+
+
+
+
+
+
+
 
 
 
