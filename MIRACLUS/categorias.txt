@@ -1,343 +1,168 @@
-1
+1{------------------------------- PREGUNTA 1 CAT 1 -------------------------------}
 Cuál de estos es un tipo de dato no ordinal.
 Entero
 Real
 Carácter
 B
 El real es un tipo de dato no ordinal ya que tiene infinitos numeros entre si, por lo tanto no tiene un antecesor y un sucesor
-1
+1{------------------------------- PREGUNTA 2 CAT 1 -------------------------------}
 Cual operación devuelve el cociente entero de una división.
 MOD
 DIV
 /
 B
 La operacion DIV es la operacion encargada de devolver el cociente de la division entre 2 numeros.
-1
+1{------------------------------- PREGUNTA 3 CAT 1 -------------------------------}
 Las constantes se declaran de la siguiente forma:
 Type 	NombreConstante = ‘Valor’;
 VAR	 NombreConstante: ‘Valor’;
 Const	  NOMBRECONSTANTE = ‘Valor’;
 C
 En Pascal, las constantes se declaran bajo la palabra reservada const.
-1
+1{------------------------------- PREGUNTA 4 CAT 1 -------------------------------}
 Cual de las siguientes opciones es la estructura de control de decision.
 If (condicion) then else
 While (condicion) do
 For i:=1 to valor do
 A
 El if, por definicion, es la estrutura de control de decision ya que pregunta una vez si una o mas condiciones son verdaderas o no, el while es una estructura de control post condicional y el for es una estructura de control de repeticion
-1
+1{------------------------------- PREGUNTA 5 CAT 1 -------------------------------}
 Cual de los siguientes tipos de variables no se puede usar como parametro de la estructura de repeticion:
 Numerico
 Real
 Char
 B
 El real es el tipo de dato que no se puede utilizar en una variable de control ya que es un tipo de dato no ordinal
-2
+2{------------------------------- PREGUNTA 1 CAT 2 -------------------------------}
 Que tipo de datos puede devolver una funcion?
 Datos Simples
 Datos Compuestos
 Estructuras de datos
 A
 Las funciones solo pueden devolver un tipo de dato simple y no puede ser de otro tipo, esto no es aconsejable, ya que las funciones se pueden utilizar dentro de las declaraciones de otras estructuras de control.
-2
+2{------------------------------- PREGUNTA 2 CAT 2 -------------------------------}
 Para poder modificar los valores de una variable por un procedimiento se recomienda pasarla como: 
 Parametro por valor
 Como variable global
 Parametro por referencia
 C
 Siempre es recomendable pasar las variables como parametros por referencia si se lo modifica. Los parametros pasados por valor no modifican el parametro real y las variables globales son mas dificiles de seguir. 
-2
+2{------------------------------- PREGUNTA 3 CAT 2 -------------------------------}
 Que es un procedimiento?
 Un modulo que realiza tareas y puede devolver 0, 1 o mas variables a traves del metodo de pasaje por parametros
 Un modulo que realiza tareas y solo devuelve un valor
 Es una estrategia que implica dividir un problema en partes funcionalmente independientes
 A
 Un procedimiento no necesariamente debe devolver un solo valor, y la estrategia de subdividir un programa en partes funcionalmente independientes se conoce como modularizacion.
-2
+2{------------------------------- PREGUNTA 4 CAT 2 -------------------------------}
 Como se invoca un funcion?
 Por medio de una estructura de control (asignacion, comparacion, etc).
 Nombre  (variable1, variable2, etc);
 Readln (Nombre (variable1, variable2, etc));
 A
 Una funcion puede ser declarada dentro de cualquier estructura de control que requiera de un dato simple. 
-3
-Complete con la compuerta logica correspondiente: 11111……..01100=01100
+3{------------------------------- PREGUNTA 1 CAT 3 -------------------------------}
+Complete con la compuerta logica correspondiente: 11111……..01100 = 01100
 OR
 AND
 XOR
 B
-La respuesta es AND porque cuando dos entradas es 1 la compuerta logica te lo devuelve 1.
-3
+La respuesta es AND porque cuando dos entradas es 1 la compuerta logica te devuelve 1.
+3{------------------------------- PREGUNTA 2 CAT 3 -------------------------------}
 Cuales de estas operaciones es la correcta
 X XOR 1 = X 
 X AND 0 = X
 X OR 0 = X
 A
-La respuesta es XOR ya que la mascara 1 te devuelve la misma entrada y con AND debe ser con 0 para que te devuelva la misma entrada y con OR basta que una de sus entradas sea 1 para que la función valga 13
-3
-Cuantas combinaciones de numeros se pueden realizar con 8 bits en BSS
+La respuesta es XOR ya que la mascara 1 te devuelve la misma entrada y con AND debe ser con 0 para que te devuelva la misma entrada y con OR basta que una de sus entradas sea 1 para que la función valga 1
+3{------------------------------- PREGUNTA 3 CAT 3 -------------------------------}
+Cuántas combinaciones de números se pueden realizar con 8 bits en BSS
 0..127
 0..255
 -63..63
 B
 Para calcular el rango en BSS es de la siguiente forma 2^n-1 donde n es el numero de bits y la respuesta es 255 ya que 2^8-1= 255.
-3
-En qué sistema el flag de desbordamiento V (overflow) indica una condición de fuera de rango?
-EX2
-BSS
-CA2
-C
-La respuesta es CA2 ya que el flag overflow indica error de desbordamiento ya que no se puede representar el numero con la cantidad de bits asignado.
-3
-Como se realiza la normalización en un sistema de punto flotante con mantisa fraccionaria
-Mover el punto fraccionario de manera tal que el bit más significativo después del punto (sin considerar el bit de signo sea 1 y para no modificar el valor se compensa con modificar el exponente 
-Desplazar en forma dinámica la coma decimal a una posición conveniente y usar el exponente de base 10 para definir la ubicación de la coma
+3{------------------------------- PREGUNTA 4 CAT 3 -------------------------------}
+La unidad aritmetico logica es la encargada de:
+encontrar la celda de memoria en la que se encuentra cada dato requerido.
+recibir datos, realizar operaciones logicas y matematicas a partir de instrucciones definidas con los mismos y devolver los resultados de dichas operaciones.
+recibir resultados de operaciones logicas y reintegrarlos en su respectiva celda de memoria.
+B
+ya que, como lo indica la definicion de aritmetica: Parte de la matemática que estudia los números y las operaciones que se hacen con ellos.
+3{------------------------------- PREGUNTA 5 CAT 3 -------------------------------}
+Cómo se realiza la normalizacion en un sistema de punto flotante con mantisa fraccionaria?
+Mover el punto fraccionario de manera tal que el bit mas significativo despues del punto (sin considerar el bit de signo) sea 1 y para no modificar el valor se compensa con modificar el exponente
+Desplazar en forma dinamica la coma decimal a una posición conveniente y usar el exponente de base 10 para definir la ubicación de la coma
 Ninguna de las anteriores
 A 
- 
-4
+La normalización en un sistema de punto flotante con mantisa fraccionaria implica mover el punto fraccionario para que el bit más significativo sea 1, ajustando el exponente para mantener el valor original.
+4{------------------------------- PREGUNTA 1 CAT 4 -------------------------------}
 Cual de estas operaciones se puede aplicar a la variable registro
 Suma
 Asignacion
 Comparacion
 B
 Solo se puede realizar la operacion asignacion en las variables del tipo registro, aunque esto no hable de las operaciones que se le puede aplicar a sus campos.
-4
+4{------------------------------- PREGUNTA 2 CAT 4 -------------------------------}
 De acuerdo al tipo de datos que lo compone, el registro es una estructura de datos
 Heterogenea
 Homogenea
 Numerica
 A
 El tipo de datos registro es una estructura de datos heterogenea ya que sus campos pueden estar compuestos de otros diversos tipos de datos.
-4
+4{------------------------------- PREGUNTA 3 CAT 4 -------------------------------}
 Como le asignamos un valor a un campo de un registro?
 IdentificadorRegistro,campo := Valor;
 IdentificadorRegistro.campo1 := Valor;
 IdentificadorRegistro[campo] := Valor;
 B
 Solo se puede realizar la operacion asignacion directa en un registro de la siguiente forma IdentificadorRegistro.campo1 := Valor;.
-4
+4{------------------------------- PREGUNTA 4 CAT 4 -------------------------------}
 Cuando decimos que una estructura de datos es de acceso directo?
 Cuando se puede acceder a un elemento deseado recorriendo toda la estructura y sumando los elementos adyacentes.
 Cuando se puede acceder a un elemento deseado recorriendo toda la estructura.
 Cuando se puede acceder a un elemento deseado sin necesidad de recorrer toda la estructura.
 C
 Por definicion, las estructuras de datos de acceso directo se puede acceder a cualquier elemento que la compone sin recorrer la estructura, de ahi su nombre.
-4
+4{------------------------------- PREGUNTA 5 CAT 4 -------------------------------}
 Que estructura de control se utiliza para permitir el acceso de todos los campos de un registro directamente.
 With .. do
 Repeat .. Until
 While .. do
 A
 La estructura de control with .. do sirve para acceder directamente a los campos de un registro sin tener que llamar al registro constantemente, solo a sus campos.
-5
+5{------------------------------- PREGUNTA 1 CAT 5 -------------------------------}
 Que es un arreglo?
 Es una colección de elementos homogeneos a los que se accede mediante un índice.
 Es una colección de elementos homogéneos con una relacion lineal que los vincula
 Es una estructura de datos heterogénea donde cada dato que lo compone se lo denomina Campo.
 A
 El tipo de dato arreglo es una coleccion de elementos a los que se puede acceder a sus datos mediante un indice.
-5
+5{------------------------------- PREGUNTA 2 CAT 5 -------------------------------}
 En que consiste el metodo de corrección de programas “Walkthrough o Recorrido”?
 El metodo consiste en recorrer un programa con alguna otra persona y calcular la cantidad exacta de memoria que ocupa cada variable.
 El metodo consiste en recorrer un programa con alguna otra persona.
 El metodo consiste en recorrer el programa instruccion por instruccion y compilarlo mentalmente.
 B
 Ya que el metodo walkthrough consiste en ver las instrucciones del programa paso por paso con una persona que no comparta los mismos preconceptos y pensamientos, que a su vez este dispuesta a descubrir errores.
-5
+5{------------------------------- PREGUNTA 3 CAT 5 -------------------------------}
 Cuales de estas operaciones no son permitidas para un tipo de dato puntero
 Readln (puntero);
 If (puntero1 = puntero2) then
 Dispose(puntero);
 A
 No se puede realizar un Readln sobre un puntero ya que apunta o señala a la variable almacenada en la dirección de memoria que contiene el puntero
-5
+5{------------------------------- PREGUNTA 4 CAT 5 -------------------------------}
 Cuando se considera correcto un programa
 Cuando el programa compila.
 Cuando el programa cumple la función especificada.
 Cuando el programa esta bien modularizado.
 B
 Ya que un programa se considera correcto cuando cumple la funcion que se le propuso, que un programa sea correcto no depende de su calidad, eficiencia o modularizacion.
-5
+5{------------------------------- PREGUNTA 5 CAT 5 -------------------------------}
 En caso de perder el primer puntero de una lista:
 No es posible acceder a la lista pero la lista sigue cargada en memoria dinamica 
 La lista automaticamente se libera en la memoria dinamica.
 La lista automaticamente vuelve al primer nodo y sigue cargada en memoria dinamica.
 A
 Cuando no recordamos guardar el primer puntero de una lista se pierde el acceso a la misma ya que la lista es una estructura de datos de acceso secuencial, y no podemos acceder al inicio de la secuencia.
-
-DEBUG - 00 - PREGUNTA - Resp: A - Cat: 1
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 00
-1
-DEBUG - 01 - PREGUNTA - Resp: A - Cat: 1
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 01
-1
-DEBUG - 02 - PREGUNTA - Resp: A - Cat: 1
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 02
-1
-DEBUG - 03 - PREGUNTA - Resp: A - Cat: 1
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 03
-1
-DEBUG - 04 - PREGUNTA - Resp: A - Cat: 1
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 04
-2
-DEBUG - 05 - PREGUNTA - Resp: A - Cat: 2
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 05
-2
-DEBUG - 06 - PREGUNTA - Resp: A - Cat: 2
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 06
-2
-DEBUG - 07 - PREGUNTA - Resp: A - Cat: 2
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 07
-2
-DEBUG - 08 - PREGUNTA - Resp: A - Cat: 2
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 08
-2
-DEBUG - 09 - PREGUNTA - Resp: A - Cat: 2
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 09
-3
-DEBUG - 10 - PREGUNTA - Resp: A - Cat: 3
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 10
-3
-DEBUG - 11 - PREGUNTA - Resp: A - Cat: 3
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 11
-3
-DEBUG - 12 - PREGUNTA - Resp: A - Cat: 3
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 12
-3
-DEBUG - 13 - PREGUNTA - Resp: A - Cat: 3
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 13
-3
-DEBUG - 14 - PREGUNTA - Resp: A - Cat: 3
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 14
-4
-DEBUG - 15 - PREGUNTA - Resp: A - Cat: 4
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 15
-4
-DEBUG - 16 - PREGUNTA - Resp: A - Cat: 4
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 16
-4
-DEBUG - 17 - PREGUNTA - Resp: A - Cat: 4
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 17
-4
-DEBUG - 18 - PREGUNTA - Resp: A - Cat: 4
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 18
-4
-DEBUG - 19 - PREGUNTA - Resp: A - Cat: 4
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 19
-5
-DEBUG - 20 - PREGUNTA - Resp: A - Cat: 5
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 20
-5
-DEBUG - 21 - PREGUNTA - Resp: A - Cat: 5
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 21
-5
-DEBUG - 22 - PREGUNTA - Resp: A - Cat: 5
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 22
-5
-DEBUG - 23 - PREGUNTA - Resp: A - Cat: 5
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 23
-5
-DEBUG - 24 - PREGUNTA - Resp: A - Cat: 5
-DEBUG - OPCION - A
-DEBUG - OPCION - B
-DEBUG - OPCION - C
-A
-DEBUG - SOLUCION - 24
