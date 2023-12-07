@@ -433,7 +433,6 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
 						vdl[I].pri:= nil;
 						vdl[I].ult:= nil;
 				end;
-				randomize; // inicializo el randomizador
 
 				// cargo datos desde el archivo 'categorias.txt'
 				assign(archCategorias, 'DEBUGcategorias.txt'); // ------------------------------------------------------------- CAMBIARLO A categorias.txt
