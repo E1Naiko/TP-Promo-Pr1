@@ -11,8 +11,8 @@ type
 	conjCompletadas = set of subrCategorias;
 	conjRespuestas = set of char;
 
-	cadenaPreg = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
-	cadenaOpci = string; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
+	cadenaPreg = string[254]; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
+	cadenaOpci = string[253]; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
 	cadenaColores = string[6];
 
 	arrOpciones = array [subrOpciones] of cadenaOpci;

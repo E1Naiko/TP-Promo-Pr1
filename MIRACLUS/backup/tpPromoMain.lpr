@@ -435,7 +435,7 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
 				end;
 
 				// cargo datos desde el archivo 'categorias.txt'
-				assign(archCategorias, 'DEBUGcategorias.txt'); // ------------------------------------------------------------- CAMBIARLO A categorias.txt
+				assign(archCategorias, 'categorias.txt'); // ------------------------------------------------------------- CAMBIARLO A categorias.txt
 				reset(archCategorias);
 				while not(eof(archCategorias)) do begin
 					// leo a que categoria pertenece la pregunta
