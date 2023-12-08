@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="19"/>
+        <CursorPos X="36" Y="41"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="libsystem.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="libSystem"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="79" Y="40"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="libUserInterface.pas"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="27" Y="2"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="modulocambioposicion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ModuloCambiarPosicion"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="40" Y="3"/>
+        <UsageCount Value="21"/>
+      </Unit>
+      <Unit>
+        <Filename Value="modulocambiarposicion.pas"/>
+        <UnitName Value="ModuloCambiarPosicion"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="37"/>
+        <CursorPos X="34" Y="6"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="28">
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="2" Column="37"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="7" Column="17"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="50" Column="49" TopLine="21"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="51" Column="21" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="49" Column="32" TopLine="36"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="50" Column="55" TopLine="37"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="60" Column="16" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="50" Column="55" TopLine="36"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="60" Column="16" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="libUserInterface.pas"/>
+        <Caret Line="40" Column="54" TopLine="13"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="60" Column="16" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="50" Column="55" TopLine="36"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="60" Column="16" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="2" Column="49"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="36" Column="3" TopLine="12"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="35" Column="11"/>
+      </Position>
+      <Position>
+        <Filename Value="libUserInterface.pas"/>
+        <Caret Line="42" Column="18" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="33" Column="20" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="15" Column="81"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="2" Column="71"/>
+      </Position>
+      <Position>
+        <Filename Value="modulocambiarposicion.pas"/>
+        <Caret Line="10" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="2" Column="71"/>
+      </Position>
+      <Position>
+        <Filename Value="modulocambiarposicion.pas"/>
+        <Caret Line="19" Column="25"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="2" Column="71"/>
+      </Position>
+      <Position>
+        <Filename Value="modulocambiarposicion.pas"/>
+        <Caret Line="6" Column="34"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="5" Column="54"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="42" Column="6"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="5" Column="37"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST01RandomizarVDL.lpr"/>
+        <Caret Line="22" Column="19" TopLine="3"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

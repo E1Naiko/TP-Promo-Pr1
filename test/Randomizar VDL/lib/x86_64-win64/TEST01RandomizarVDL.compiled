@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="D:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1420791944"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -l -vewnhibq &quot;-FiD:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\Randomizar VDL\lib\x86_64-win64&quot; &quot;-FuD:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\Randomizar VDL\&quot; &quot;-FUD:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\Randomizar VDL\lib\x86_64-win64\&quot; &quot;-FED:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\Randomizar VDL\&quot; &quot;-oD:\Escritorio\Ultra Nerd\Programas\TP-Promo-Pr1\test\Randomizar VDL\TEST01RandomizarVDL.exe&quot; TEST01RandomizarVDL.lpr"/>
+</CONFIG>
