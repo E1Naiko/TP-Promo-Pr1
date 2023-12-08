@@ -24,6 +24,7 @@ type
 
 	tipoPreguntas = record
 		numCategoria: subrCategorias;
+   numPregunta: integer;
 		pregunta: cadenaPreg;
 		opciones: arrOpciones;
 		respuesta: subrOpciones;
