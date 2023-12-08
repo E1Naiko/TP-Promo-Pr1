@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="6" Y="2"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="typeycargalista.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="typeYcargaLista"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="51" Y="4"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
+        <Filename Value="libUserInterface.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="14" Y="3"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="crearfichero.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="crearFichero"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="13"/>
+        <UsageCount Value="20"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="13">
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="10" Column="43"/>
+      </Position>
+      <Position>
+        <Filename Value="libUserInterface.pas"/>
+        <Caret Line="3" Column="22"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="9" Column="21"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="27" Column="3" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="8" Column="44" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="8" Column="44" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="3" Column="39"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="8" Column="43"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Column="9"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="38" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="74" Column="3" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="2" Column="54"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Column="9"/>
+      </Position>
+      <Position>
+        <Filename Value="TEST4LecturaDatosCategoria.lpr"/>
+        <Caret Line="2" Column="6"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
