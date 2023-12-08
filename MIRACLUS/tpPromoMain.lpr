@@ -19,6 +19,7 @@ type
 
 	tipoPreguntas = record
 		numCategoria: subrCategorias;
+   numPregunta: integer;
 		pregunta: cadenaPreg;
 		opciones: arrOpciones;
 		respuesta: subrOpciones;
@@ -440,6 +441,7 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
 				while not(eof(archCategorias)) do begin
 					// leo a que categoria pertenece la pregunta
 					readln(archCategorias, act.numCategoria);
+        readln(archCategorias, act.numPregunta);
 
 					// leo la pregunta en si y sus opciones
 					readln(archCategorias, act.pregunta);
