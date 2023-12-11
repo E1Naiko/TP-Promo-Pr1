@@ -43,21 +43,7 @@ type
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// --------------------------- MODULOS DE INTERFAZ DE USUARIO ---------------------------
+// --------------------------- MODULOS DE INTERFAZ ---------------------------
 procedure imprimirPregunta(p: tipoPreguntas); // UI - imprime la pregunta actual
 		var I: subrOpciones;
 		begin
@@ -260,9 +246,14 @@ procedure presentarPregunta(p: tipoPreguntas; errores, errordesafio: integer);
 		     writeln;
 		     imprimirPregunta(p);
 	        end;
+// --------------------------- FIN MODULOS DE INTERFAZ ---------------------------
 
 
-// --------------------------- MODULOS JUEGO ---------------------------
+
+
+
+
+// --------------------------- MODULOS DEL JUEGO ---------------------------
 procedure elegirColor(var catActual: subrCategorias; var valido: boolean);
                 var color: string;
 	        begin
@@ -380,9 +371,14 @@ procedure partida(vdl: vdlCategorias; var resultado: boolean; var puntaje, error
                // actualizo resultado en caso que el jugador pierde
 	       resultado:= (error < constERRORES) and (completadas = fin);
 	  end;
+// --------------------------- FIN MODULOS DEL JUEGO ---------------------------
 
 
-// --------------------------- MODULOS DE SISTEMA ---------------------------
+
+
+
+
+// --------------------------- MODULOS DEL SISTEMA ---------------------------
 procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt' y carga una cantidad aleatoria de listas
                 procedure inicializarVDL(var vdl: vdlCategorias);
                           var
@@ -419,17 +415,19 @@ procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt
 			reset(archCategorias);
 			while not(eof(archCategorias)) do begin
 				// leo a que categoria pertenece la pregunta
-				readln(archCategorias, act.numCategoria);
-                                       readln(archCategorias, act.numPregunta);
-                        				// leo la pregunta en si y sus opciones
-				readln(archCategorias, act.pregunta);
-				for Iopciones:= 'A' to constOPCIONES do begin
+				  readln(archCategorias, act.numCategoria);
+                                  readln(archCategorias, act.numPregunta);
+                                // leo la pregunta en si y sus opciones
+				  readln(archCategorias, act.pregunta);
+				  for Iopciones:= 'A' to constOPCIONES do begin
 						readln(archCategorias, act.opciones[Iopciones]);
-				end;
-                        				// leo la respuesta correcta y sus respuestas
-				readln(archCategorias, act.respuesta);
-				readln(archCategorias, act.explicacion);
-                        				// agrego al Vector De Listas
+				  end;
+                        	
+				// leo la respuesta correcta y sus respuestas
+				  readln(archCategorias, act.respuesta);
+				  readln(archCategorias, act.explicacion);
+                        	
+			 	// agrego al final del Vector De Listas
 				agregarFinal(vdl[act.numCategoria], act);
                         			end;
 			close(archCategorias);
@@ -451,6 +449,10 @@ procedure liberarMemVDL(var vdl: vdlCategorias); // libera la memoria ocupada po
 				end;
 			end;
 		end;
+// --------------------------- MODULOS DEL SISTEMA ---------------------------
+
+
+
 
 
 
