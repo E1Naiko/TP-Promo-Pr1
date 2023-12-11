@@ -9,6 +9,7 @@ const
 	constOPCIONES = 'C';
 	constCATEGORIAS = 5;
 	constERRORES = 3;
+        constERRORDESAFIO = 2;
 type
 	subrOpciones = 'A' .. constOPCIONES;
 	subrCategorias = 1 .. constCATEGORIAS;
@@ -16,15 +17,14 @@ type
 	conjCompletadas = set of subrCategorias;
 	conjRespuestas = set of char;
 
-	cadenaPreg = string[254]; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
-	cadenaOpci = string[253]; // ---------------------------------------------------------------------------- CAMBIAR A NECESIDAD
-	cadenaColores = string[6];
+	cadenaPreg = string[110];
+	cadenaOpci = string[240];
 
 	arrOpciones = array [subrOpciones] of cadenaOpci;
 
 	tipoPreguntas = record
 		numCategoria: subrCategorias;
-   numPregunta: integer;
+                numPregunta: integer;
 		pregunta: cadenaPreg;
 		opciones: arrOpciones;
 		respuesta: subrOpciones;
