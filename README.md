@@ -55,8 +55,6 @@ type
   procedure precESC(); // espera a que el jugador precione "ESC" para continuar
   procedure nuevaPartida(var ok:boolean); // espera a que el jugador precione "ESC" o "ENTER"
   procedure intro(); // imprime la portada del juego
-   {INTERNO A INTRO} procedure apertura(); // UI - imprime la portada del juego y narra la historia del mismo
-   {INTERNO A INTRO} procedure reglas(); // UI - imprime las reglas del juego
   procedure outro();
   procedure jugadorGano(); // imprime la pantalla de juego terminado-Victoria
   procedure jugadorPerdio(); // imprime la pantalla de juego terminado-Derrota
@@ -74,7 +72,6 @@ type
 
 ### SISTEMA
   ```
-  procedure agregarFinal(var l: lista; elem: tipoPreguntas); // agrega un elemento al final de la lista
   procedure cargarVDL(var vdl: vdlCategorias); // busca el archivo 'categorias.txt' y se lo asigna a un Vector De Listas
   procedure liberarMemVDL(var vdl: vdlCategorias); // libera la memoria ocupada por el Vector De Listas
   ```
