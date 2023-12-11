@@ -17,9 +17,9 @@ La operacion DIV es la operacion encargada de devolver el cociente de la divisio
 1 {------------------------------- PREGUNTA 3 CAT 1 -------------------------------}
 3
 Las constantes se declaran de la siguiente forma:
-Type 	NombreConstante = ‘Valor’;
-VAR	 NombreConstante: ‘Valor’;
-Const	  NOMBRECONSTANTE = ‘Valor’;
+Type 	NombreConstante = "Valor";
+VAR	 NombreConstante: "Valor";
+Const	  NOMBRECONSTANTE = "Valor";
 C
 En Pascal, las constantes se declaran bajo la palabra reservada const.
 1 {------------------------------- PREGUNTA 4 CAT 1 -------------------------------}
