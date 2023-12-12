@@ -9,13 +9,13 @@
         <Filename Value="tpPromoMain.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="79"/>
-        <CursorPos X="32" Y="92"/>
+        <TopLine Value="400"/>
+        <CursorPos Y="417"/>
         <UsageCount Value="44"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="tpPromoMain.lpr"/>
         <Caret Line="500" Column="42" TopLine="481"/>
@@ -78,10 +78,6 @@
       </Position>
       <Position>
         <Filename Value="tpPromoMain.lpr"/>
-        <Caret Line="16" Column="28" TopLine="46"/>
-      </Position>
-      <Position>
-        <Filename Value="tpPromoMain.lpr"/>
         <Caret Line="178" Column="71" TopLine="149"/>
       </Position>
       <Position>
@@ -126,15 +122,15 @@
       </Position>
       <Position>
         <Filename Value="tpPromoMain.lpr"/>
-        <Caret Line="101" Column="34" TopLine="161"/>
-      </Position>
-      <Position>
-        <Filename Value="tpPromoMain.lpr"/>
         <Caret Line="300" Column="15" TopLine="274"/>
       </Position>
       <Position>
         <Filename Value="tpPromoMain.lpr"/>
         <Caret Line="481" Column="25" TopLine="460"/>
+      </Position>
+      <Position>
+        <Filename Value="tpPromoMain.lpr"/>
+        <Caret Line="418" Column="35" TopLine="400"/>
       </Position>
     </JumpHistory>
     <RunParams>

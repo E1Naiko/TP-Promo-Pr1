@@ -1,4 +1,4 @@
-program tpPromoMain;
+program miraclus_Main;
 uses crt, SysUtils;
 const
 	constOPCIONES = 'C';
